@@ -10,12 +10,15 @@ public class InternalWorkingOfSpringBootApplication implements CommandLineRunner
 	public static void main(String[] args) {
 		SpringApplication.run(InternalWorkingOfSpringBootApplication.class, args);
 	}
-    private RazorPayPaymentService paymentService=new RazorPayPaymentService();
-
+    private RazorPayPaymentService paymentService;
+ public InternalWorkingOfSpringBootApplication(RazorPayPaymentService paymentService) {
+     this.paymentService=paymentService;
+ }
     @Override
     public void run(String... args) throws Exception {
         paymentService.pay();
-        System.out.println("Payment successful");
+        String payment=" Razorpay ";
+        System.out.println("payment done from" + payment);
 
     }
 }
